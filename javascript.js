@@ -9,3 +9,8 @@ function getComputerChoice () {
     }
     return choice;
 }
+
+function getHumanChoice() {
+    let choice = prompt("What will you play?");
+    return choice;
+}
