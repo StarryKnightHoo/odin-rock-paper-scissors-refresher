@@ -22,33 +22,49 @@ function playRound(humanChoice, computerChoice) {
     humanChoice = humanChoice.toLowerCase();
     if (humanChoice === "rock") {
         if (computerChoice === "rock") {
-            return "It's a tie!"
+            console.log("It's a tie!");
         } else if (computerChoice === "paper") {
             computerScore++;
-            return "You lose! Rock loses to paper!"
+            console.log("You lose! Rock loses to paper!");
         } else {
             humanScore++;
-            return "You win! Rock beats scissors!"
+            console.log("You win! Rock beats scissors!");
         }
     } else if (humanChoice === "paper") {
         if (computerChoice === "rock") {
             humanScore++;
-            return "You win! Paper beats rock!"
+            console.log("You win! Paper beats rock!")
         } else if (computerChoice === "paper") {
-            return "It's a tie!"
+            console.log("It's a tie!")
         } else {
             computerScore++;
-            return "You lose! Paper loses to scissors!"
+            console.log("You lose! Paper loses to scissors!")
         }
     } else {
         if (computerChoice === "rock") {
             computerScore++;
-            return "You lose! Scissors loses to rock!"
+            console.log("You lose! Scissors loses to rock!")
         } else if (computerChoice === "paper") {
             humanScore++;
-            return "You win! Scissors beats paper!"
+            console.log("You win! Scissors beats paper!")
         } else {
-            return "It's a tie!"
+            console.log("It's a tie!");
         }
     }
+}
+
+function playGame() {
+    for (i = 0; i < 5; i++) {
+        playRound(getHumanChoice(), getComputerChoice());
+    } 
+
+    if (humanScore > computerScore) {
+        console.log("You win the game!")
+    } else if (humanScore === computerScore) {
+        console.log("The game is tied!")
+    } else {
+        console.log("You lose the game!")
+    }
+    humanScore = 0;
+    computerScore = 0;
 }
