@@ -3,6 +3,7 @@ let computerScore = 0;
 const rockButton = document.querySelector(".rock");
 const paperButton = document.querySelector(".paper");
 const scissorsButton = document.querySelector(".scissors");
+const results = document. querySelector(".results");
 
 function getComputerChoice () {
     let choice = Math.random();
@@ -19,33 +20,33 @@ function getComputerChoice () {
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === "rock") {
         if (computerChoice === "rock") {
-            console.log("It's a tie!");
+            results.textContent = "It's a tie!";
         } else if (computerChoice === "paper") {
             computerScore++;
-            console.log("You lose! Rock loses to paper!");
+            results.textContent = "You lose! Rock loses to paper!";
         } else {
             humanScore++;
-            console.log("You win! Rock beats scissors!");
+            results.textContent = "You win! Rock beats scissors!";
         }
     } else if (humanChoice === "paper") {
         if (computerChoice === "rock") {
             humanScore++;
-            console.log("You win! Paper beats rock!")
+            results.textContent = "You win! Paper beats rock!";
         } else if (computerChoice === "paper") {
-            console.log("It's a tie!")
+            results.textContent = "It's a tie!";
         } else {
             computerScore++;
-            console.log("You lose! Paper loses to scissors!")
+            results.textContent = "You lose! Paper loses to scissors!";
         }
     } else {
         if (computerChoice === "rock") {
             computerScore++;
-            console.log("You lose! Scissors loses to rock!")
+            results.textContent = "You lose! Scissors loses to rock!";
         } else if (computerChoice === "paper") {
             humanScore++;
-            console.log("You win! Scissors beats paper!")
+            results.textContent = "You win! Scissors beats paper!";
         } else {
-            console.log("It's a tie!");
+            results.textContent = "It's a tie!";
         }
     }
 }
