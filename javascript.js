@@ -3,7 +3,8 @@ let computerScore = 0;
 const rockButton = document.querySelector(".rock");
 const paperButton = document.querySelector(".paper");
 const scissorsButton = document.querySelector(".scissors");
-const results = document. querySelector(".results");
+const results = document.querySelector(".results");
+const score = document.querySelector(".score");
 
 function getComputerChoice () {
     let choice = Math.random();
@@ -49,6 +50,17 @@ function playRound(humanChoice, computerChoice) {
             results.textContent = "It's a tie!";
         }
     }
+    score.textContent = "Player: " + humanScore + " Computer:"  + computerScore;
+
+    if (humanScore === 5) {
+        results.textContent = "You win the game!";
+        humanScore = 0;
+        computerScore = 0;
+    } else if (computerScore === 5) {
+        results.textContent = "You lose the game!";
+        humanScore = 0;
+        computerScore = 0;
+    }
 }
 
 rockButton.addEventListener("click", () => {
@@ -60,3 +72,5 @@ paperButton.addEventListener("click", () => {
 scissorsButton.addEventListener("click", () => {
     playRound("scissors", getComputerChoice());
 });
+
+score.textContent = "Player: " + humanScore + " Computer:"  + computerScore;
